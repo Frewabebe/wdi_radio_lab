@@ -20,12 +20,14 @@ angular
 ])
 function SongsIndexControllerFunction (Songs) {
   this.songs = Songs.query()
+  console.log(this.songs)
 }
 
 function songsService ($resource) {
-  return $resource('http://localhost:3000/songs.json', {}, {
+  return $resource('http://localhost:3000/songs/:id.json', {}, {
     update: {
-      method: 'PUT'}
+      method: 'PUT'
+    }
   })
 }
 
